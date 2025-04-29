@@ -1,0 +1,226 @@
+101,Alice,0,70000,Data Science
+102,Bob,25,50000,Engineering
+103,Charlie,5,80000,Data Science
+104,david,40,90000,HR
+105,Eve,28,60000,Engineering
+106,Frank,38,75000,HR
+107,Grace,27,72000,Data Science
+108,hank,32,68000,Engineering
+109,Ivy,29,62000,Data Science
+110,Jack,31,71000,HR
+
+ID,name,salary,Department
+101,Alice,0,70000,Data Science
+102,Charlie,25,50000,Engineering
+103,David,40,90000,HR
+104,Eve,28,60000,ENGINEERING
+105,Frank,38,75000,HR
+106,Grace,27,72000,Data Science
+107,Hank,32,68000,Engineering
+108,Ivy,29,62000,Data Science
+110,Jack,31,71000,HR
+
+login as: 2021ict97
+2021ict97@172.16.140.150's password:
+Last login: Mon Mar 24 11:49:26 2025 from 172.16.140.65
+[2021ict97@fedora ~]$ vi datas.txt
+[2021ict97@fedora ~]$ vi data file.csv
+2 files to edit
+[2021ict97@fedora ~]$ grep wc -1 data file.csv
+grep: file.csv: No such file or directory
+[2021ict97@fedora ~]$ vi data file.csv
+2 files to edit
+[2021ict97@fedora ~]$ vi datas.txt
+[2021ict97@fedora ~]$ vi data_file.csv
+[2021ict97@fedora ~]$ wc -1 data_file.csv
+wc: invalid option -- '1'
+Try 'wc --help' for more information.
+[2021ict97@fedora ~]$ wc -l data_file.csv
+10 data_file.csv
+[2021ict97@fedora ~]$ head -5 data_file.csv | tail -1
+105,Eve,28,60000,Engineering
+[2021ict97@fedora ~]$ awk {print $3} data_file.csv
+awk: cmd. line:1: {print
+awk: cmd. line:1:       ^ unexpected newline or end of string
+[2021ict97@fedora ~]$ awk '{print $3}' data_file.csv
+
+
+
+
+
+
+
+
+
+
+[2021ict97@fedora ~]$ awk '{print $2}' data_file.csv
+Science
+
+Science
+
+
+
+Science
+
+Science
+
+[2021ict97@fedora ~]$ cut -d, -f3 data_file.csv
+0
+25
+5
+40
+28
+38
+27
+32
+29
+31
+[2021ict97@fedora ~]$ tput cols
+197
+[2021ict97@fedora ~]$ echo $columns
+
+[2021ict97@fedora ~]$ echo $COLUMNS
+197
+[2021ict97@fedora ~]$ stty size
+51 197
+[2021ict97@fedora ~]$ vi data_file.csv
+[2021ict97@fedora ~]$ echo $columns
+
+[2021ict97@fedora ~]$ echo $COLUMNS
+197
+[2021ict97@fedora ~]$ wc -l ^C
+[2021ict97@fedora ~]$ wc -l data_file.csv
+10 data_file.csv
+[2021ict97@fedora ~]$ head -n10 data_file.csv | grep 29
+109,Ivy,29,62000,Data Science
+[2021ict97@fedora ~]$ head -3 data_file.csv >> Third.csv
+[2021ict97@fedora ~]$ vi Third.csv
+[2021ict97@fedora ~]$ vi Third.csv
+[2021ict97@fedora ~]$ cut -d, -f2,3 data_file.csv
+Alice,0
+Bob,25
+Charlie,5
+david,40
+Eve,28
+Frank,38
+Grace,27
+hank,32
+Ivy,29
+Jack,31
+[2021ict97@fedora ~]$ cut -d, -f3,5 data_file.csv
+0,Data Science
+25,Engineering
+5,Data Science
+40,HR
+28,Engineering
+38,HR
+27,Data Science
+32,Engineering
+29,Data Science
+31,HR
+[2021ict97@fedora ~]$ awk '{print $2,5}' data_file.csv
+Science 5
+ 5
+Science 5
+ 5
+ 5
+ 5
+Science 5
+ 5
+Science 5
+ 5
+[2021ict97@fedora ~]$ awk -F, '{print $2,5}' data_file.csv
+Alice 5
+Bob 5
+Charlie 5
+david 5
+Eve 5
+Frank 5
+Grace 5
+hank 5
+Ivy 5
+Jack 5
+[2021ict97@fedora ~]$ cut -d, -f3,5 data_file.csv > column.csv
+[2021ict97@fedora ~]$ vi column.csv
+[2021ict97@fedora ~]$ head -n10 data_file.csv | grep max
+[2021ict97@fedora ~]$
+[2021ict97@fedora ~]$ head -n10 data_file.csv | grep min
+[2021ict97@fedora ~]$
+[2021ict97@fedora ~]$ awk -F, '{print $4}' data_file.csv | sort
+50000
+60000
+62000
+68000
+70000
+71000
+72000
+75000
+80000
+90000
+[2021ict97@fedora ~]$ awk -F, '{print $4}' data_file.csv | -sort
+bash: -sort: command not found...
+Similar command is: 'sort'
+[2021ict97@fedora ~]$
+[2021ict97@fedora ~]$ sort -t',' -k3,3nr data_file.csv
+104,david,40,90000,HR
+106,Frank,38,75000,HR
+108,hank,32,68000,Engineering
+110,Jack,31,71000,HR
+109,Ivy,29,62000,Data Science
+105,Eve,28,60000,Engineering
+107,Grace,27,72000,Data Science
+102,Bob,25,50000,Engineering
+103,Charlie,5,80000,Data Science
+101,Alice,0,70000,Data Science
+[2021ict97@fedora ~]$ sort -t',' -k4,4nr data_file.csv
+104,david,40,90000,HR
+103,Charlie,5,80000,Data Science
+106,Frank,38,75000,HR
+107,Grace,27,72000,Data Science
+110,Jack,31,71000,HR
+101,Alice,0,70000,Data Science
+108,hank,32,68000,Engineering
+109,Ivy,29,62000,Data Science
+105,Eve,28,60000,Engineering
+102,Bob,25,50000,Engineering
+[2021ict97@fedora ~]$ vi data_file.csv
+[2021ict97@fedora ~]$ sort -t',' -k3,3nr data_file.csv
+104,david,40,90000,HR
+106,Frank,38,75000,HR
+108,hank,32,68000,Engineering
+110,Jack,31,71000,HR
+109,Ivy,29,62000,Data Science
+105,Eve,28,60000,Engineering
+107,Grace,27,72000,Data Science
+102,Bob,25,50000,Engineering
+103,Charlie,5,80000,Data Science
+101,Alice,0,70000,Data Science
+ID,name,age,salary,department
+[2021ict97@fedora ~]$ sort -t',' -k4,4nr data_file.csv
+104,david,40,90000,HR
+103,Charlie,5,80000,Data Science
+106,Frank,38,75000,HR
+107,Grace,27,72000,Data Science
+110,Jack,31,71000,HR
+101,Alice,0,70000,Data Science
+108,hank,32,68000,Engineering
+109,Ivy,29,62000,Data Science
+105,Eve,28,60000,Engineering
+102,Bob,25,50000,Engineering
+ID,name,age,salary,department
+[2021ict97@fedora ~]$ sort -t',' -k4,4n data_file.csv
+ID,name,age,salary,department
+102,Bob,25,50000,Engineering
+105,Eve,28,60000,Engineering
+109,Ivy,29,62000,Data Science
+108,hank,32,68000,Engineering
+101,Alice,0,70000,Data Science
+110,Jack,31,71000,HR
+107,Grace,27,72000,Data Science
+106,Frank,38,75000,HR
+103,Charlie,5,80000,Data Science
+104,david,40,90000,HR
+[2021ict97@fedora ~]$ vi data_file.csv
+[2021ict97@fedora ~]$ vi column.csv
+[2021ict97@fedora ~]$ vi Third.csv
+[2021ict97@fedora ~]$
